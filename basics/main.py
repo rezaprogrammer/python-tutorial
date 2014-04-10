@@ -4,20 +4,12 @@ Created on Apr 6, 2014
 @author: reza
 '''
 
-from collections import deque
+from leeth import PolishExpression
+import leeth
+from leeth.PolishExpression import evaluate_polish
 
 def printout_something():
     print("Hi!")
-
-expr = ['3', '2', '+']
-
-def evaluate_polish(expr):
-    v1 = expr[0]
-    v2 = expr[1]
-    op = expr[2]
-
-    print("%d" % int(v1))
-    return
 
 def some_lambda_func(val):
     return lambda x: val * x
@@ -73,6 +65,10 @@ if __name__ == '__main__':
     
     #some_list_ops()
     #some_more_list_ops()
-    test_transpose_matrix()
+    #test_transpose_matrix()
+    
+    stack = [10, 2, '+']
+    res = evaluate_polish(stack)
+    print(res)   
     
     pass
