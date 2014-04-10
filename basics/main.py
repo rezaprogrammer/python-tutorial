@@ -5,6 +5,8 @@ Created on Apr 6, 2014
 '''
 
 from leeth import PolishExpression
+from basics import fib
+
 import leeth
 from leeth.PolishExpression import evaluate_polish
 
@@ -67,8 +69,12 @@ if __name__ == '__main__':
     #some_more_list_ops()
     #test_transpose_matrix()
     
-    stack = [10, 2, '+']
-    res = evaluate_polish(stack)
-    print(res)   
+    # Polish expressions
+    #stack = [10, 2, '+']
+    #res = evaluate_polish(stack)
+    #print(res)
+    
+    # Fibonacci
+    print(fib.fibbonacci(50))
     
     pass
