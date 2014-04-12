@@ -30,5 +30,11 @@ if __name__ == '__main__':
     
     print('*' * 10)
     
-    mb = MyClass()
-    print(mb)
+    mc = MyClass()
+    print(mc)
+    
+    print('isinstance(mbc, mbc.__class__): {0}'.format(isinstance(mbc, mbc.__class__)))
+    print('isinstance(mbc, mc.__class__): {0}'.format(isinstance(mbc, mc.__class__)))
+    print('issubclass(mc.__class__, mbc.__class__): {0}'.format(issubclass(mc.__class__, mbc.__class__)))
+    print('issubclass(mc.__class__, mbc.__class__): {0}'.format(issubclass(mc.__class__, mc.__class__)))
+    
