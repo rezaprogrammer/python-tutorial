@@ -6,8 +6,8 @@ Created on Apr 11, 2014
 
 def play_iterator():
     s = 'Hello!'
-    for c in s:
-        print(c)
+    for i, c in enumerate(s):
+        print('{0} -> {1}'.format(i, c))
     
     it = iter(s)
     while(next(it)):
