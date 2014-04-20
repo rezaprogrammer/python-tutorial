@@ -45,7 +45,7 @@ class RList:
 
 class RListTesterThread(Thread):
     '''A simple tester class for RList.'''
-    
+
     def __init__(self, id, rlist, n):
         Thread.__init__(self)
         self.id = id
