@@ -88,7 +88,7 @@ class TestRunner(unittest.TestCase):
         assert r._state == AsyncRunnerState.FINISHED
                 
 if __name__ == "__main__":
-    #import sys;sys.argv = ['', 'Test.testRunner']
+    # import sys;sys.argv = ['', 'TestRunner.testRunner']
     #unittest.main()
     t = TestRunner()
     t.testRunner()
