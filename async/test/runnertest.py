@@ -83,12 +83,10 @@ class TestRunner(unittest.TestCase):
         assert len(received_items) == 3
         for item in received_items:
             assert item == input_items.pop()
-        
+
         r.stop()
         assert r._state == AsyncRunnerState.FINISHED
-        
-        return
-        
+                
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testRunner']
     #unittest.main()

@@ -71,6 +71,9 @@ class AsyncRunner(object):
         if self._state is not AsyncRunnerState.RUNNING:
             raise Exception('Invalid state: {0}.'.format(self._state))
         self._state = AsyncRunnerState.FINISHED
+        self._queue_lock.acquire()
+        self._queue_empty.notifyAll()
+        self._queue_lock.release()
 
     def execute(self, item):
         self.item = item
