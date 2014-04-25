@@ -53,10 +53,10 @@ class AsyncRunnerTester(AsyncRunner):
 
 class TestRunner(unittest.TestCase):
     
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
+        super(TestRunner, self).__init__(*args, **kwargs)
         self._lock = RLock()
         self._received = []
-        return
         
     def testRunner(self):
         listener = Listener()
@@ -68,26 +68,21 @@ class TestRunner(unittest.TestCase):
         
         r.start()
         assert r._state == AsyncRunnerState.RUNNING
-        
-        i1 = 'item1'
-        i2 = 'item2'
-        i3 = 'item3'
-        
-        r.append(i1)
-        r.append(i2)
-        r.append(i3)
+
+        input_items = ['item1', 'item2', 'item3']        
+        for item in input_items:
+            r.append(item)
         
         N = 3
-        items = []
-        while N > 0 and len(items) != 3:
+        received_items = []
+        while N > 0 and len(received_items) != 3:
             time.sleep(1)
-            items = listener.received_items()
-            print('{0}'.format(items))
+            received_items = listener.received_items()
+            print('{0}'.format(received_items))
             N = N - 1
-        assert len(items) == 3
-        assert items.pop() == i1
-        assert items.pop() == i2
-        assert items.pop() == i3
+        assert len(received_items) == 3
+        for item in received_items:
+            assert item == input_items.pop()
         
         r.stop()
         assert r._state == AsyncRunnerState.FINISHED
@@ -96,6 +91,6 @@ class TestRunner(unittest.TestCase):
         
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testRunner']
-    unittest.main()
-    #t = TestRunner()
-    #t.testRunner()
+    #unittest.main()
+    t = TestRunner()
+    t.testRunner()
