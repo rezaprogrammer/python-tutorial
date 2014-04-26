@@ -35,7 +35,7 @@ class SubscriberTester(Subscriber):
         super(SubscriberTester, self).deliver(pid, e)
         self.received_events.append(e)
         
-class Test(unittest.TestCase):
+class TestRunner(unittest.TestCase):
 
     def testID(self):
         id1 = ID()
@@ -135,5 +135,5 @@ class Test(unittest.TestCase):
             raise Exception('Event {0} should not be received by subscriber {1}.'.format(e2, s2))
         
 if __name__ == "__main__":
-    # import sys;sys.argv = ['', 'Test.testName']
+    # import sys;sys.argv = ['', 'TestRunner.testName']
     unittest.main()
