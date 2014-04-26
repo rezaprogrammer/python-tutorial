@@ -89,6 +89,6 @@ class TestRunner(unittest.TestCase):
                 
 if __name__ == "__main__":
     # import sys;sys.argv = ['', 'TestRunner.testRunner']
-    #unittest.main()
-    t = TestRunner()
-    t.testRunner()
+    unittest.main()
+    #t = TestRunner()
+    #t.testRunner()
